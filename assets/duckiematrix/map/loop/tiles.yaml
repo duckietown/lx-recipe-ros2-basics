@@ -5,11 +5,11 @@ tiles:
   map_0/tile_0_1:
     type: straight
   map_0/tile_0_2:
-    type: curve
+    type: 3way
   map_0/tile_0_3:
-    type: floor
+    type: straight
   map_0/tile_0_4:
-    type: floor
+    type: curve
   map_0/tile_1_0:
     type: straight
   map_0/tile_1_1:
@@ -19,34 +19,34 @@ tiles:
   map_0/tile_1_3:
     type: floor
   map_0/tile_1_4:
-    type: floor
-  map_0/tile_2_0:
-    type: curve
-  map_0/tile_2_1:
     type: straight
+  map_0/tile_2_0:
+    type: straight
+  map_0/tile_2_1:
+    type: floor
   map_0/tile_2_2:
-    type: curve
+    type: 3way
   map_0/tile_2_3:
-    type: floor
+    type: straight
   map_0/tile_2_4:
-    type: floor
+    type: 3way
   map_0/tile_3_0:
-    type: floor
+    type: straight
   map_0/tile_3_1:
     type: floor
   map_0/tile_3_2:
-    type: floor
+    type: straight
   map_0/tile_3_3:
     type: floor
   map_0/tile_3_4:
-    type: floor
+    type: straight
   map_0/tile_4_0:
-    type: floor
+    type: curve
   map_0/tile_4_1:
-    type: floor
+    type: straight
   map_0/tile_4_2:
-    type: floor
+    type: 3way
   map_0/tile_4_3:
-    type: floor
+    type: straight
   map_0/tile_4_4:
-    type: floor
+    type: curve
