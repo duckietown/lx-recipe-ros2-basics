@@ -1,52 +1,57 @@
-# LX Recipe: <LX_TITLE_HERE>
+# LX Recipe: ROS 2 Basics
 
-TODO: add information that is useful for instructors
+This is the recipe for the [`lx-ros2-basics`](https://github.com/duckietown/lx-ros2-basics)
+Learning Experience (Duckietown, `ente` distribution, ROS 2 Jazzy over `rmw_zenoh_cpp`).
+It holds everything the learner never edits: the Docker images, the dependencies, the launcher,
+the Duckiematrix map and the notebook helpers.
 
-# How to Create an LX Recipe
+Learners do not clone this repository. The Duckietown Shell pulls it automatically because
+`lx-ros2-basics/.dtproject` points at it:
 
-The LX recipe contains components of the exercise that the student should
-not need to change and are effectively hidden from view. There are a few
-files here that will require some attention in the creation of the learning
-experience
+    RECIPE_REPOSITORY=duckietown/lx-recipe-ros2-basics
+    RECIPE_BRANCH=ente
 
-## Dependencies
+The ROS 1 version of this LX lives in `lx-ros-basics` / `lx-recipe-ros-basics`.
 
-Specify any `apt` or `python` dependencies needed in the 
-[dependencies-apt.txt](./dependencies-apt.txt) and 
-[dependencies-py3.txt](./dependencies-py3.txt) respectively. 
+## What is here
 
-## Base Image
+| Path | Purpose |
+| --- | --- |
+| `Dockerfile` | image behind `dts code build` / `dts code workbench`: the learner's `packages/` are built with `colcon` on top of `dt-ros2-commons` |
+| `Dockerfile.vscode` | image behind `dts code editor`: the browser editor with ROS 2 Jazzy, `duckietown_msgs` and the notebook panels |
+| `dependencies-apt.txt` | runtime APT packages of the workbench image (none) |
+| `dependencies-apt.vscode.txt` | ROS 2 Jazzy, `rmw_zenoh_cpp` and `colcon` for the editor image |
+| `dependencies-py3.txt` | Python packages shared by both images (`ipywidgets`, `ipympl`, `matplotlib` for the notebook panels) |
+| `launchers/default.sh` | what runs when the workbench container starts: `ros2 launch ros2_basics drive_node.launch.py` |
+| `packages/lx_ros2_tools` | helpers used by the notebooks and the nodes: `RosSession`, `ParamPanel`, `ActionButtons`, `ImageView`, `TopicPlot`, `LiveParams`, image conversion |
+| `assets/vscode/` | editor settings, ROS 2 in every terminal, writable `colcon` output directories |
+| `assets/duckiematrix/` | the `loop` map used by `dts code start_matrix` |
+| `settings.yaml` | Duckiematrix map and vehicle used by `dts code start_matrix` |
 
-You need to specify a `BASE_IMAGE` in the [Dockerfile](./Dockerfile). This
-choice defines what is already in the docker image and can be used in the 
-running of the exercise.
+## How the images talk to the robot
 
-Reasonable choices could be:
+The Duckiebot runs ROS 2 on the default domain and discovery goes through a **zenoh router** on
+the robot (`tcp/ROBOT.local:7447`). The launcher (started by `dts code workbench -R ROBOT`) and the
+editor terminals export
+`ZENOH_CONFIG_OVERRIDE='mode="client";connect/endpoints=["tcp/ROBOT.local:7447"]'` from `VEHICLE_NAME`,
+and `RosSession("ROBOT")` does the same inside a notebook (client mode: a peer session from outside the
+robot would try to link directly to the robot's containers and see nothing). Note that `dts code editor` has
+no robot option: inside the editor `VEHICLE_NAME` is the container hostname, so a terminal is pointed at a
+robot by exporting `ZENOH_CONFIG_OVERRIDE` by hand (the LX README and notebooks 03/04 explain this), and a
+local router for robot-less work is started with `ZENOH_CONFIG_OVERRIDE= ros2 run rmw_zenoh_cpp rmw_zenohd`.
 
- - [`dt-commons`](https://github.com/duckietown/dt-commons): likely a good choice
-if the LX is pure python and doesn't require ROS.
- - [`dt-ros-commons`](https://github.com/duckietown/dt-ros-commons): likely
-a good choice if you would like to use ROS in a standalone fashion (i.e., 
-your exercise includes all the nodes that are needed)
- - [`dt-core`](https://github.com/duckietown/dt-core): a good choice if you 
-would like to use one or more of the nodes defined in the packages 
-in the `dt-core` repository. 
+## Testing local recipe changes
 
-Coming soon:
- - ROS2 base image
- - Machine learning base image
+Check this repository out next to the LX and run, from the LX directory:
 
-## Duckiematrix 
+    dts code editor --recipe ../lx-recipe-ros2-basics
+    dts code build -R ROBOT --recipe ../lx-recipe-ros2-basics
 
-By default, each LX is compatible with the [Duckiematrix](https://docs.duckietown.com/ente/devmanual-duckiematrix/intro.html).
-See the [README in the LX template](https://github.com/duckietown/template-lx/blob/ente/README.md)
-for more details on how to deploy this capability through the `dts code` API. 
-You can define the exact configuration of the Duckiematrix environment in the 
-[assets/duckiematrix](./assets/duckiematrix) directory. For more details see
-[the Duckiematrix manual](https://docs.duckietown.com/ente/devmanual-duckiematrix/intro.html).
+Inside the editor, **Terminal > New Terminal** gives a shell with `ros2`, `colcon` and the
+`duckietown_msgs` interfaces:
 
-## noVNC Customization
-
-It is also possible to customize the noVNC desktop. 
-TODO: add details. 
-
+    ros2 interface show duckietown_msgs/msg/Twist2DStamped
+    cd "$COLCON_WS"
+    colcon build --base-paths /code/src/lx-ros2-basics/packages --packages-select ros2_basics
+    source install/setup.bash
+    ros2 pkg executables ros2_basics

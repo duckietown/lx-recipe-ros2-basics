@@ -38,7 +38,7 @@ frames:
       z: 0
       roll: 0
       pitch: 0
-      yaw: 3.1415
+      yaw: -1.5706806282723
   map_0/tile_0_3:
     relative_to: ~
     unit: tiles
@@ -118,7 +118,7 @@ frames:
       z: 0
       roll: 0
       pitch: 0
-      yaw: 0.0
+      yaw: 1.5706806282723
   map_0/tile_2_1:
     relative_to: ~
     unit: tiles
@@ -138,7 +138,7 @@ frames:
       z: 0
       roll: 0
       pitch: 0
-      yaw: 1.5706806282723
+      yaw: 0.0
   map_0/tile_2_3:
     relative_to: ~
     unit: tiles
@@ -158,7 +158,7 @@ frames:
       z: 0
       roll: 0
       pitch: 0
-      yaw: 1.5706806282723
+      yaw: 3.14159265359
   map_0/tile_3_0:
     relative_to: ~
     unit: tiles
@@ -238,7 +238,7 @@ frames:
       z: 0
       roll: 0
       pitch: 0
-      yaw: 0.0
+      yaw: 1.5706806282723
   map_0/tile_4_3:
     relative_to: ~
     unit: tiles
@@ -266,10 +266,10 @@ frames:
       y: 0
       z: 0
       roll: 0
-      pitch: 0.5
+      pitch: 0
       yaw: 0
   map_0/vehicle_0:
-    relative_to: ~
+    relative_to: map_0
     pose:
       x: 0.8799999999999999
       y: 0.18499999999999986
@@ -277,35 +277,248 @@ frames:
       roll: 0
       pitch: 0
       yaw: 0.0
-  map_0/vehicle_1:
+  map_0/sign_stop_1:
     relative_to: ~
+    unit: tiles
     pose:
-      x: 0.88
-      y: 0.99
+      x: 0.66
+      y: 2.51
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 1.57079632679
+  map_0/sign_stop_20:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: -0.55
+      y: 2.62
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 3.14
+  map_0/sign_stop_21:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: -0.67
+      y: 1.5
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: -1.57079632679
+  map_0/sign_right_T_intersect_9:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: 0.54
+      y: 2.51
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 1.57
+  map_0/sign_left_T_intersect_10:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: -0.55
+      y: 1.5
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: -1.57
+  map_0/sign_T_intersect_11:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: -0.55
+      y: 2.5
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 3.1415
+  map_0/sign_stop_22:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: 2.5
+      y: 1.46
       z: 0
       roll: 0
       pitch: 0
       yaw: 0.0
-  map_0/groundtag_300:
+  map_0/sign_stop_23:
     relative_to: ~
+    unit: tiles
     pose:
-      x: 0.86
-      y: 2.045
+      x: 1.44
+      y: 2.56
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 3.14
+  map_0/sign_stop_24:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: 1.5
+      y: 1.44
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: -1.57079632679
+  map_0/sign_right_T_intersect_57:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: 1.44
+      y: 2.68
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 3.14
+  map_0/sign_left_T_intersect_61:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: 2.5
+      y: 1.34
       z: 0
       roll: 0
       pitch: 0
       yaw: 0.0
-  map_0/duckie_0:
+  map_0/sign_T_intersect_65:
     relative_to: ~
+    unit: tiles
     pose:
-      x: 1.8
-      y: 0.85
+      x: 1.62
+      y: 1.44
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: -1.57079632679
+  map_0/sign_stop_25:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: 2.5
+      y: 4.56
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 1.57
+  map_0/sign_stop_26:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: 2.56
+      y: 3.44
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 0.0
+  map_0/sign_stop_27:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: 1.5
+      y: 4.56
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 3.14
+  map_0/sign_right_T_intersect_58:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: 2.56
+      y: 3.32
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 0.0
+  map_0/sign_left_T_intersect_62:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: 1.5
+      y: 4.68
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 3.14
+  map_0/sign_T_intersect_66:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: 2.62
+      y: 4.56
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 1.57079632679
+  map_0/sign_stop_28:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: 4.56
+      y: 1.5
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 0.0
+  map_0/sign_stop_29:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: 3.44
+      y: 1.44
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: -1.57
+  map_0/sign_stop_30:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: 4.56
+      y: 2.5
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 1.57
+  map_0/sign_right_T_intersect_59:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: 3.32
+      y: 1.44
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: -1.57
+  map_0/sign_left_T_intersect_64:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: 4.68
+      y: 2.5
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 1.57
+  map_0/sign_T_intersect_67:
+    relative_to: ~
+    unit: tiles
+    pose:
+      x: 4.56
+      y: 1.38
       z: 0
       roll: 0
       pitch: 0
       yaw: 0.0
   map_0/billboard_1:
-    relative_to: ~
+    relative_to: map_0
     pose:
       x: 1.0
       y: -0.24
@@ -313,8 +526,17 @@ frames:
       roll: 0
       pitch: 0
       yaw: 0
+  map_0/billboard_2:
+    relative_to: map_0
+    pose:
+      x: 2.0
+      y: -0.24
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 0
   map_0/street_light_0:
-    relative_to: ~
+    relative_to: map_0
     pose:
       x: 0.6
       y: 0.6
@@ -322,12 +544,21 @@ frames:
       roll: 0
       pitch: 0
       yaw: 2.356
-  map_0/vehicle_0/cameraman_0:
-    relative_to: ~
+  map_0/street_light_1:
+    relative_to: map_0
     pose:
-      x: -0.4
-      y: 0.0
-      z: 0.2
+      x: 1.46
+      y: 0.6
+      z: 0
       roll: 0
       pitch: 0
-      yaw: 0.0
+      yaw: 3.14
+  map_0/street_light_2:
+    relative_to: map_0
+    pose:
+      x: 2.32
+      y: 0.6
+      z: 0
+      roll: 0
+      pitch: 0
+      yaw: 3.925
